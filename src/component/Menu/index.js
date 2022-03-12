@@ -48,11 +48,11 @@ const MenuLink = ({ label, to, activeOnlyWhenExact }) => {
                     className="text-black py-3 px-10 min-w-[180px] block hover:bg-[#3498db] child-radius font-medium"
                   >
                     <Link
-                      to={`/products/category/${cate}`}
+                      to={`/categories/${cate.name}`}
                       className="capitalize"
                     >
                       {" "}
-                      {cate}
+                      {cate.name}
                     </Link>
                   </li>
                 ))}
@@ -73,7 +73,7 @@ const sites = [
 function Menu() {
   const { currentUser, signOut } = useAuth();
   const products = useSelector(cart);
-  console.log(products);
+
   const logOut = async () => {
     try {
       await signOut();
@@ -84,8 +84,16 @@ function Menu() {
   };
   return (
     <div className="navbar flex justify-between items-center mt-768:mx-20 mx-2">
+      <div className="navbar-brand p-2 ">
+        <Link className="flex items-center" to="/">
+          <img src="https://img.icons8.com/ios/35/000000/shoes.png" />
+          <h1 className="font-bold text-2xl after:border-l-2 after:border-[#e5e5e5] ">
+            BiliesShoes.
+          </h1>
+        </Link>
+      </div>
       <div className="mt-768:block hidden">
-        <ul className=" flex p-2 font-medium  ">
+        <ul className=" flex p-2 font-medium items-center ">
           {sites.map((site, index) => (
             <MenuLink
               key={index}
@@ -94,38 +102,16 @@ function Menu() {
               activeOnlyWhenExact={site.exact}
             />
           ))}
-        </ul>
-      </div>
-      <div className="navbar-brand p-2 ">
-        <Link className="flex items-center" to="/">
-          <img className="w-12 h-12" src={logo} alt="" />
-        </Link>
-      </div>
-      <div>
-        <ul className="flex">
-          <li className=" relative p-3">
-            <a className="inline-block w-21" href="/cart">
+          <li className=" relative p-3 mx-2">
+            <Link className="inline-block w-21" to="/cart">
               <div>
                 {" "}
-                <svg
-                  className="h-5 w-5 text-black"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  {" "}
-                  <circle cx="9" cy="21" r="1" />{" "}
-                  <circle cx="20" cy="21" r="1" />{" "}
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                </svg>
-                <div className="absolute top-[3px] -right-[2px] rounded-2xl text-sm  px-2 bg-red-500 text-white">
-                  {/* {products.length} */}
+                <img src="https://img.icons8.com/external-others-made-by-made/30/000000/external-cart-ecommerce-others-made-by-made.png" />
+                <div className="absolute top-[7px] right-[28px] rounded-2xl text-sm  px-2 bg-red-500 text-white">
+                  {products.length}
                 </div>
               </div>
-            </a>
+            </Link>
           </li>
           <li className="p-3  relative">
             <label htmlFor="nav-user-category" className="flex">
@@ -179,6 +165,9 @@ function Menu() {
             </ul>
           </li>
         </ul>
+      </div>
+      <div>
+        <ul className="flex"></ul>
       </div>
       <div className="block mt-768:hidden  ">
         {" "}

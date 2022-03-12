@@ -5,13 +5,10 @@ function ProductItem(props) {
   const { product } = props;
   const dispatch = useDispatch();
   return (
-    <Link
-      to={`/products/${product.category}/${product.id}`}
-      className="bg-[#ededeb] p-4 "
-    >
+    <Link to={`/products/${product.id}`} className="bg-[#ededeb] p-4 ">
       <div
         className="mt-320:h-[200px] mt-1280:h-[200px] bg-contain bg-center bg-no-repeat relative"
-        style={{ backgroundImage: `url(${product.image})` }}
+        style={{ backgroundImage: `url(${product.thumbnailUrl})` }}
       ></div>
       <div>
         <h1 className="font-bold h-12 text-clip overflow-hidden">

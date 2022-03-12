@@ -3,17 +3,24 @@ import { useParams } from "react-router-dom";
 import storeApi from "../../api/storeApi";
 import ProductItem from "../ProductItem/index";
 import Loader from "./../Loader/index.js";
-function ProductsGrid() {
+function ProductsGrid({ category }) {
   const [products, setProduct] = useState([]);
   const [preload, setPreLoad] = useState(false);
   const { catalog } = useParams();
   useEffect(() => {
     setPreLoad(true);
+    const checkId = () => {
+      let id;
+      category.map((cate) => {
+        if (cate.name === catalog) id = cate.id;
+      });
+      return id;
+    };
     const getProduct = async () => {
       let response = null;
       try {
         const params = {};
-        response = await storeApi.getProducts(catalog, { params });
+        response = await storeApi.getProducts(checkId(), { params });
         setProduct(response);
         setPreLoad(false);
       } catch {

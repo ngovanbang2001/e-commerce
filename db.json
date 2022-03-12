@@ -1,0 +1,102 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "nike"
+    },
+    {
+      "id": 2,
+      "name": "adidas"
+    },
+    {
+      "id": 3,
+      "name": "yezzy"
+    },
+    {
+      "id": 4,
+      "name": "jordan"
+    }
+  ],
+  "products": [
+    {
+      "id": 2,
+      "title": "GTS 97 BLACK WHITE",
+      "price": "2,900,000",
+      "size": [
+        42.5,
+        43
+      ],
+      "description": "Nike Air Force 1 Ra mắt vào năm 1982 bởi nhà thiết kế Bruce Kilgore, ngay lập tức mẫu giày Nike Air Force 1 (AF1) đã trở thành một 'hit' mạnh trên khắp thế giới khi 'sold out' ngay trong ngày đầu trình làng.",
+      "categoryId": 1,
+      "thumbnailUrl": "https://kingshoes.vn/data/upload/media/giày-nike-gts-97-black-white-da1446-001-chính-hãng-dến-king-shoes-1-1646288941.jpg"
+    },
+    {
+      "id": 4,
+      "title": "AIR MAX 270 JUST DO IT",
+      "price": "3,900,000 ",
+      "size": [
+        42.5
+      ],
+      "description": "Nike Air Force 1 Ra mắt vào năm 1982 bởi nhà thiết kế Bruce Kilgore, ngay lập tức mẫu giày Nike Air Force 1 (AF1) đã trở thành một 'hit' mạnh trên khắp thế giới khi 'sold out' ngay trong ngày đầu trình làng.",
+      "categoryId": 1,
+      "thumbnailUrl": "https://kingshoes.vn/data/upload/media/nike-air-max-270-just-do-it-ah805-001-king-shoes-sneaker-real-hcm-1624260112.jpeg"
+    },
+    {
+      "id": 5,
+      "title": "SUPERSTAR",
+      "price": "1,950,000 ",
+      "size": [
+        36,
+        36.5,
+        37,
+        38,
+        38.5,
+        39,
+        40
+      ],
+      "description": "Adidas Superstar Authentic là mẫu giày vô cùng classic được liệt kê vào danh sách những đôi giày kinh điển, trường tồn và không bao giờ lỗi thời.",
+      "categoryId": 2,
+      "thumbnailUrl": "https://kingshoes.vn/data/upload/media/sneaker-c77124-super-star-adidas-kingshoes.vn-tphcm-tanbinh-27-1628053703.jpeg"
+    },
+    {
+      "id": 6,
+      "title": "NMD_R1 SPECTOO",
+      "price": "2,900,000 đ",
+      "size": [
+        36,
+        36.5,
+        38,
+        38.5,
+        39,
+        40
+      ],
+      "description": "Adidas Superstar Authentic là mẫu giày vô cùng classic được liệt kê vào danh sách những đôi giày kinh điển, trường tồn và không bao giờ lỗi thời.",
+      "categoryId": 2,
+      "thumbnailUrl": "https://kingshoes.vn/data/upload/media/giày-adidas-nmd-r1-gz9289-king-shoes-1-1642591968.jpg"
+    },
+    {
+      "id": 7,
+      "title": "DUNK LOW COAST",
+      "price": "9,500,000 ",
+      "size": [
+        38,
+        39,
+        40
+      ],
+      "description": "Adidas Superstar Authentic là mẫu giày vô cùng classic được liệt kê vào danh sách những đôi giày kinh điển, trường tồn và không bao giờ lỗi thời.",
+      "categoryId": 3,
+      "thumbnailUrl": "https://kingshoes.vn/data/upload/media/nike-dunk-low-coast-dd1503-100-tai-king-shoes-sneaker-real-hcm-1624272905.jpeg"
+    },
+    {
+      "id": 8,
+      "title": "JORDAN 1 LOW PINK QUARTZ",
+      "price": "6,200,000 ",
+      "size": [
+        39
+      ],
+      "description": "Adidas Superstar Authentic là mẫu giày vô cùng classic được liệt kê vào danh sách những đôi giày kinh điển, trường tồn và không bao giờ lỗi thời.",
+      "categoryId": 3,
+      "thumbnailUrl": "https://kingshoes.vn/data/upload/media/jordan-1-low-pink-quartz-554723-016-king-shoes-sneaker-real-hcm-1624273196.jpeg"
+    }
+  ]
+}

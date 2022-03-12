@@ -10,7 +10,6 @@ function ProductList() {
     const getList = async () => {
       setPreLoad(true);
       let response = null;
-
       try {
         const params = {};
         response = await storeApi.getAllProducts({ params });
@@ -22,7 +21,6 @@ function ProductList() {
     };
     getList();
   }, []);
-
   return (
     <div className="grid grid-cols-4 gap-4">
       {preload && <Loader />}

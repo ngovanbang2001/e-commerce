@@ -59,7 +59,6 @@ function App() {
         draggable
         pauseOnHover={false}
       />
-      <Footer />
     </Router>
   );
 }

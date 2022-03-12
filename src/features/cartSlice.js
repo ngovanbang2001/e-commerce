@@ -1,28 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useAuth } from "./../context/AuthProvider";
+
 // localStorage.setItem(
 //   "cart",
-//   JSON.stringify({
-//     id: 1,
-//     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-//     price: 109.95,
-//     description:
-//       "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-//     category: "men's clothing",
-//     image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-//     rating: {
-//       rate: 3.9,
-//       count: 120,
+//   JSON.stringify([
+//     {
+//       id: 1,
+//       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+//       price: 109.95,
+//       description:
+//         "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+//       category: "men's clothing",
+//       image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+//       rating: {
+//         rate: 3.9,
+//         count: 120,
+//       },
 //     },
-//   })
+//   ])
 // );
-const data = JSON.parse(localStorage.getItem("cart"));
-const initialState = data ? data : [];
+const items =
+  localStorage.getItem("cart") !== null
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
+const initialState = { value: items };
 export const slice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     addProduct: (state, action) => {
       let newItem = action.payload;
+      console.log(state);
       if (state.value.length > 0) {
         const duplicate = state.value.filter(
           (e) => e.product.id === newItem.product.id
@@ -81,6 +89,7 @@ export const slice = createSlice({
     },
   },
 });
-export const { addProduct, deleteProduct, changeQuantity } = slice.actions;
+const { actions, reducer } = slice;
+export const { addProduct, deleteProduct, changeQuantity } = actions;
 export const cart = (state) => state.cart.value;
-export default slice.reducer;
+export default reducer;

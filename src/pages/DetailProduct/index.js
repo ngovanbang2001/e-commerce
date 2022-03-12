@@ -7,7 +7,6 @@ import { useParams, Link, useHistory } from "react-router-dom";
 import Loader from "./../../component/Loader/index.js";
 import ProductItem from "../../component/ProductItem";
 import { useAuth } from "./../../context/AuthProvider";
-
 import { addProduct } from "./../../features/cartSlice";
 import "./index.css";
 
@@ -48,38 +47,49 @@ function DetailProduct() {
       console.log("error");
     }
   };
-  const getRelatedProduct = async () => {
-    let response = null;
-    try {
-      const params = {};
-      response = await storeApi.getProducts(category, {
-        params,
-      });
-      setRelatedProduct(response);
-    } catch {
-      console.log("error");
-    }
-  };
+  console.log(id);
+  // const getRelatedProduct = async () => {
+  //   let response = null;
+  //   try {
+  //     const params = {};
+  //     response = await storeApi.getProducts(category, {
+  //       params,
+  //     });
+  //     setRelatedProduct(response);
+  //   } catch {
+  //     console.log("error");
+  //   }
+  // };
   useEffect(() => {
     window.scrollTo(0, 0);
     getDetailProduct();
-    getRelatedProduct();
+    // getRelatedProduct();
   }, [id]);
   const check = () => {
-    if (!currentUser) {
+    if (!currentUser.uid) {
       alert("Bạn phải đăng nhập");
       history.push("/login");
       return false;
     }
-
     return true;
   };
   const addToCart = async () => {
     try {
       if (check()) {
         await dispatch(addProduct({ product, quantity: value }));
+        toast.success("Thêm hàng Thành Công !");
       }
-      toast.success("Thêm hàng Thành Công !");
+    } catch (e) {
+      toast.error(e.error);
+    }
+  };
+  const buyNow = async () => {
+    try {
+      if (check()) {
+        await dispatch(addProduct({ product, quantity: value }));
+        toast.success("Thêm hàng Thành Công !");
+        history.push("/cart");
+      }
     } catch (e) {
       toast.error(e.error);
     }
@@ -92,7 +102,7 @@ function DetailProduct() {
           <div className="bg-[#ededeb] py-4 px-8">
             <div
               className="bg-contain bg-center bg-no-repeat relative h-[330px]  "
-              style={{ backgroundImage: `url(${product.image})` }}
+              style={{ backgroundImage: `url(${product.thumbnailUrl})` }}
             ></div>
           </div>
           <div className="relative mt-2">
@@ -152,21 +162,18 @@ function DetailProduct() {
             </button>
           </div>
           <div className="flex">
-            <label
-              htmlFor="box-cart"
+            <button
               onClick={() => addToCart()}
               className=" px-4 py-2 bg-[#3498db] text-white"
             >
               Thêm vào giỏ
-            </label>
-
-            <Link
-              to="/cart"
-              onClick={() => dispatch(addProduct(product, value))}
+            </button>
+            <button
+              onClick={() => buyNow()}
               className="ml-2 px-4 py-2 bg-black text-white"
             >
               Mua ngay
-            </Link>
+            </button>
           </div>
         </div>
       </div>

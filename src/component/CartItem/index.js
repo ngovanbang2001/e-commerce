@@ -36,7 +36,7 @@ const CartItem = ({ item }) => {
     <div className="w-full grid grid-cols-5 gap-4 ">
       <div className="col-span-2">
         <div className="flex items-center  text-left">
-          <img className="w-[50px] h-[50px] m-2" src={product.image} />
+          <img className="w-[50px] h-[50px] m-2" src={product.thumbnailUrl} />
           {product.title}
         </div>
       </div>

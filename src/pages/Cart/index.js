@@ -11,9 +11,7 @@ function Cart() {
   useEffect(() => {
     setTotalPrice(
       carts.reduce((total, cart) => {
-        return (
-          total.toFixed(2) + Number(cart.product.price) * Number(cart.quantity)
-        );
+        return total + cart.product.price * cart.quantity;
       }, 0)
     );
   }, [carts]);
@@ -34,7 +32,7 @@ function Cart() {
           ))}
 
           <div className="flex justify-end text-xl font-bold">
-            Tổng tiền :{totalPrice} $
+            Tổng tiền :{totalPrice.toFixed(2)} $
           </div>
         </div>
       ) : (
